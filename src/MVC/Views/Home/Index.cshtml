@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Berrini</h1>
+    <p class="lead">Restaurante e bar</p>
+    @if (!User.Identity.IsAuthenticated) { 
+    <p>
+        Cadastre-se no sistema e ganhe premios incríveis.
+        @Html.ActionLink("Cadastre-se", "Register", "Account",null, new { @class="btn btn-lg btn-primary"})
+    </p>
+        
+    }
+    @if(User.IsInRole("Cliente"))
+    {
+        <div class="alert-success"> Agora vá para o menu @Html.ActionLink("Meus cupons","Index","MeusCupons") e começe a cadastrar seus cupons!!!"</div>
+    }
+</div>
+

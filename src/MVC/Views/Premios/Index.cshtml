@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Berrini.Application.ViewModels.PremioViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Prêmios</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-2 pull-right">@Html.ActionLink("Novo", "Criar", "Premios", null, new { @class = "btn btn-primary" })</div>
+        </div>
+    </div>
+
+    <table class="table table-responsive table-bordered table-condensed">
+        <thead>
+            <tr>
+                @*<th>@Html.DisplayNameFor(m => m.Id)</th>*@
+                <th>@Html.DisplayNameFor(m => m.Nome)</th>
+                <th>@Html.DisplayNameFor(m => m.Descricao)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>@Html.DisplayFor(m => item.Id)</td>*@
+                    <td>@Html.DisplayFor(m => item.Nome)</td>
+                    <td>@Html.DisplayFor(m => item.Descricao)</td>
+                    <td>
+                        <div class="btn-group-xs ">
+                            @Html.ActionLink("Editar", "Editar", "Premios", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

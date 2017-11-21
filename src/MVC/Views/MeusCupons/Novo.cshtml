@@ -1,0 +1,25 @@
+﻿@model Berrini.Application.ViewModels.CadastroCupomViewModel
+    @{
+        ViewBag.Title = "Novo";
+    }
+<h2>Cadastre seus cupons</h2>
+    <div class="panel panel-primary">
+        <div class="panel-heading"> </div>
+        <div class="panel-body">
+            @using(Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    @Html.LabelFor(model => model.NumeroCupom, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-sm-3">
+                        @Html.EditorFor(model => model.NumeroCupom, new {htmlAttributes=new {@class="form-control"}})
+                        @Html.ValidationMessageFor(model => model.NumeroCupom, "", new {@class="text-danger"})
+                    </div>
+                    <div class="col-sm-3"><input type="submit" value="Enviar" class="btn btn-primary"/>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Berrini.Application.ViewModels.CupomViewModel>
+
+@{
+    ViewBag.Title = "Cupons";
+}
+
+<h2>Cupons</h2>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-2 pull-right">@Html.ActionLink("Novo", "Criar", "Cupons", null, new { @class = "btn btn-primary" })</div>
+        </div>
+        
+        
+       
+    </div>
+   
+        <div class="btn-group pull-right">
+
+        </div>
+        <table class="table table-bordered table-condensed table-responsive">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumeroCupom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Criacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MesesValidade)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Premio)</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumeroCupom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Criacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MesesValidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Premio.Nome)
+                    </td>
+                    <td>
+                        <div class="btn-group-xs ">
+                            @Html.ActionLink("Editar", "Editar","Cupons", new { id = item.Id },new{@class= "btn   btn-primary" }) 
+                           
+                            @Html.ActionLink("Remover", "Remover", "Cupons", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </div>
+                       
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    
+</div>
+

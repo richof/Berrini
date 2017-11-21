@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Berrini.Application.ViewModels.CupomViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Meus cupons</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        
+        <div class="row">
+            <div class="col-sm-2 pull-right">@Html.ActionLink("Cadastrar novo", "Novo", "MeusCupons", null, new {@class="btn btn-primary"})</div>
+        </div>
+    </div>
+    
+        
+        <table class="table table-responsive table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(m => m.Id)</th>
+                <th> @Html.DisplayNameFor(m => m.NumeroCupom)</th>
+                
+                <th> @Html.DisplayNameFor(m => m.Premio)</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.NumeroCupom)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(m => item.Premio.Nome)
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+

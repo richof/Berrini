@@ -1,0 +1,17 @@
+﻿@model Berrini.Application.ViewModels.PremioViewModel
+@{
+    ViewBag.Title = "Premiado";
+}
+<h2> Parebens!!! seu cupom foi premiado </h2>
+<div class="panel panel-success">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+       
+        <h4>@Html.Label("Seu Premio")</h4>  <h4 class="alert-success">@Model.Nome</h4>
+        <p class="col-sm-3" style="text-align:justify" >
+            @Model.Descricao
+        </p>
+        <div class="pull-right">@Html.ActionLink("Voltar para minha lista de cupons","Index","MeusCupons",null,new{@class="btn btn-primary"})</div>
+    </div>
+</div>
+

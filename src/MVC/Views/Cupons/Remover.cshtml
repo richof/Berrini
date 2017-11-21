@@ -1,0 +1,48 @@
+﻿@model Berrini.Application.ViewModels.CupomViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Remover</h2>
+
+<h4>Quer mesmo remover o cupom do sistema?</h4>
+@if (ViewBag.Alerta != "")
+{
+    <div class="alert alert-warning">
+        @ViewBag.Alerta
+    </div>
+}
+<div>
+    <div class="panel panel-danger">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">@Html.LabelFor(m=>m.NumeroCupom)</div>
+                <div class="col-sm-4">@Html.DisplayFor(m => m.NumeroCupom)</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">@Html.LabelFor(m => m.MesesValidade)</div>
+                <div class="col-sm-4">@Html.DisplayFor(m => m.MesesValidade)</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">@Html.LabelFor(m => m.Premio)</div>
+                <div class="col-sm-4">@Html.DisplayFor(m => m.Premio.Nome)</div>
+            </div>
+        </div>
+    </div> 
+   
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+       
+
+        <div class="btn-group">
+            @if(ViewBag.Alerta=="")
+                 {
+                     <input type="submit" value="Remover" class="btn btn-primary"/>
+                 }
+            @Html.ActionLink("Cancelar", "Index",null,new{ @class = "btn btn-success"})
+        </div>
+    }
+</div>

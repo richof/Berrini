@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Berrini.Application.ViewModels.ClienteViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Clientes cadastrados </h2>
+<div class="panel panel-success">
+    <div class="panel-heading"></div>
+    
+        <table class="table table-responsive table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.Id)</th>
+                    <th>@Html.DisplayNameFor(m => m.Nome)</th>
+                    <th>@Html.DisplayNameFor(m =>m.CPF)</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.Id)</td>
+                        <td>@Html.DisplayFor(m => item.Nome)</td>
+                        <td>@Html.DisplayFor(m => item.CPF)</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
