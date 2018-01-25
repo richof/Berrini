@@ -1,5 +1,5 @@
 Administrador:
-login: admin@mail.com
+login: admin@Mail.com
 senha: 121212
 
-Verion: Visual Studio: community-2017
+Version: Visual Studio: community-2017
